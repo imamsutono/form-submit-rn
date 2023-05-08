@@ -77,6 +77,8 @@ export default function Form() {
         onChangeText={handleCommentChange}
       />
 
+      <Map />
+
       <TouchableOpacity onPress={handleSubmit}>
         <Text>Submit</Text>
       </TouchableOpacity>
