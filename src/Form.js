@@ -11,26 +11,6 @@ export default function Form() {
   const [comment, setComment] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleNameChange = (value) => {
-    setName(value);
-  };
-
-  const handleAddressChange = (value) => {
-    setAddress(value);
-  };
-
-  const handleGenderChange = (value) => {
-    setGender(value);
-  };
-
-  const handleHobbyChange = (value) => {
-    setHobby(value);
-  };
-
-  const handleCommentChange = (value) => {
-    setComment(value);
-  };
-
   const handleSubmit = () => {
     setIsLoading(true);
   };
@@ -40,19 +20,19 @@ export default function Form() {
       <Text>NIM:</Text>
       <TextInput
         value={nim}
-        onChangeText={(value) => setNim(value)}
+        onChangeText={setNim}
       />
 
       <Text>Name:</Text>
       <TextInput
         value={name}
-        onChangeText={handleNameChange}
+        onChangeText={setName}
       />
 
       <Text>Address:</Text>
       <TextInput
         value={address}
-        onChangeText={handleAddressChange}
+        onChangeText={setAddress}
       />
 
       <View>
@@ -68,14 +48,14 @@ export default function Form() {
       <Text>Hobby:</Text>
       <TextInput
         value={hobby}
-        onChangeText={handleHobbyChange}
+        onChangeText={setHobby}
       />
 
       <Text>Comment:</Text>
       <TextInput
         multiline={true}
         value={comment}
-        onChangeText={handleCommentChange}
+        onChangeText={setComment}
       />
 
       <Map />
