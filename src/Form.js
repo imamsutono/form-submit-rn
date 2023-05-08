@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 
 
 export default function Form() {
@@ -9,6 +9,7 @@ export default function Form() {
   const [gender, setGender] = useState('');
   const [hobby, setHobby] = useState('');
   const [comment, setComment] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleNameChange = (value) => {
     setName(value);
@@ -31,7 +32,7 @@ export default function Form() {
   };
 
   const handleSubmit = () => {
-    // Handle form submission here
+    setIsLoading(true);
   };
 
   return (
@@ -78,6 +79,12 @@ export default function Form() {
       />
 
       <Map />
+
+      {isLoading ? (
+        <ActivityIndicator size="large" color="#0000ff" />
+      ) : (
+        <Button title="Submit" onPress={handleSubmit} />
+      )}
 
       <TouchableOpacity onPress={handleSubmit}>
         <Text>Submit</Text>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 export default function Map() {
   const [region, setRegion] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -23,6 +24,8 @@ export default function Map() {
 
   return (
     <View style={styles.container}>
+      {isLoading ? <ActivityIndicator /> : null}
+
       {region && (
         <MapView
           style={styles.map}
